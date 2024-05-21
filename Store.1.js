@@ -1,17 +1,21 @@
 // store.js
+
 class Store {
  constructor(reducer, initialState) {
   this.reducer = reducer;
   this.state = initialState;
   this.listeners = [];
  }
+
  getState() {
   return this.state;
  }
+
  dispatch(action) {
   this.state = this.reducer(this.state, action);
   this.listeners.forEach((listener) => listener());
  }
+
  subscribe(listener) {
   this.listeners.push(listener);
   return () => {
@@ -33,26 +37,27 @@ function counterReducer(state = { count: 0 }, action) {
    return state;
  }
 }
+
 // Initial state
 const initialState = { count: 0 };
 
 // Create the store
-const store = new store(counterReducer, initialState);
+const store = new Store(counterReducer, initialState);
 
 // Subscribe to store updates
 store.subscribe(() => {
- console.log("state:", store.getState());
+ console.log("State:", store.getState());
 });
 
-// Scenario 1: Initaial State Verification
+// Scenario 1: Initial State Verification
 console.log("Initial State:", store.getState());
 
-//Scenario 2: Incrementing the counter
+// Scenario 2: Incrementing the Counter
 store.dispatch({ type: "ADD" });
 store.dispatch({ type: "ADD" });
 
-//Scenario 3: Decrementing the counter
+// Scenario 3: Decrementing the Counter
 store.dispatch({ type: "SUBTRACT" });
 
-//Scenario 4: Resetting the counter
+// Scenario 4: Resetting the Counter
 store.dispatch({ type: "RESET" });

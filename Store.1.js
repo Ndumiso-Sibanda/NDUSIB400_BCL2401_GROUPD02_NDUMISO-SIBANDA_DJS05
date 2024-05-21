@@ -46,3 +46,7 @@ store.subscribe(() => {
 
 // Scenario 1: Initaial State Verification
 console.log("Initial State:", store.getState());
+
+//Scenario 2: Incrementing the counter
+store.dispatch({ type: "ADD" });
+store.dispatch({ type: "ADD" });

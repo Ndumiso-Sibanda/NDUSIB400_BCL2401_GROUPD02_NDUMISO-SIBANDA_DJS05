@@ -38,3 +38,8 @@ const initialState = { count: 0 };
 
 // Create the store
 const store = new store(counterReducer, initialState);
+
+// Subscribe to store updates
+store.subscribe(() => {
+ console.log("state:", store.getState());
+});

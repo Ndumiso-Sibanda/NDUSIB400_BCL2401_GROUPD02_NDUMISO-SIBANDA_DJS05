@@ -53,3 +53,6 @@ store.dispatch({ type: "ADD" });
 
 //Scenario 3: Decrementing the counter
 store.dispatch({ type: "SUBTRACT" });
+
+//Scenario 4: Resetting the counter
+store.dispatch({ type: "RESET" });

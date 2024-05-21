@@ -35,3 +35,6 @@ function counterReducer(state = { count: 0 }, action) {
 }
 // Initial state
 const initialState = { count: 0 };
+
+// Create the store
+const store = new store(counterReducer, initialState);

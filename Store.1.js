@@ -12,4 +12,10 @@ class Store {
   this.state = this.reducer(this.state, action);
   this.listeners.forEach((listener) => listener());
  }
+ subscribe(listener) {
+  this.listeners.push(listener);
+  return () => {
+   this.listeners = this.listeners.filter((l) => l !== listener);
+  };
+ }
 }

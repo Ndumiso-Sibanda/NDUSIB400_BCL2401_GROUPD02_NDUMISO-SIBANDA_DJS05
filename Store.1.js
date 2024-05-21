@@ -33,3 +33,5 @@ function counterReducer(state = { count: 0 }, action) {
    return state;
  }
 }
+// Initial state
+const initialState = { count: 0 };

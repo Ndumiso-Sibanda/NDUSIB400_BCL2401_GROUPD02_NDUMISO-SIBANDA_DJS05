@@ -43,3 +43,6 @@ const store = new store(counterReducer, initialState);
 store.subscribe(() => {
  console.log("state:", store.getState());
 });
+
+// Scenario 1: Initaial State Verification
+console.log("Initial State:", store.getState());

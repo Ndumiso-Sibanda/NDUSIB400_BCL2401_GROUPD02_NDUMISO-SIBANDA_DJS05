@@ -50,3 +50,6 @@ console.log("Initial State:", store.getState());
 //Scenario 2: Incrementing the counter
 store.dispatch({ type: "ADD" });
 store.dispatch({ type: "ADD" });
+
+//Scenario 3: Decrementing the counter
+store.dispatch({ type: "SUBTRACT" });
